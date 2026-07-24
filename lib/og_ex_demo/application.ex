@@ -9,9 +9,6 @@ defmodule OgExDemo.Application do
   def start(_type, _args) do
     children = [
       OgExDemoWeb.Telemetry,
-      OgExDemo.Repo,
-      {Ecto.Migrator,
-       repos: Application.fetch_env!(:og_ex_demo, :ecto_repos), skip: skip_migrations?()},
       {DNSCluster, query: Application.get_env(:og_ex_demo, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: OgExDemo.PubSub},
       # Start a worker by calling: OgExDemo.Worker.start_link(arg)
@@ -32,10 +29,5 @@ defmodule OgExDemo.Application do
   def config_change(changed, _new, removed) do
     OgExDemoWeb.Endpoint.config_change(changed, removed)
     :ok
-  end
-
-  defp skip_migrations?() do
-    # By default, sqlite migrations are run when using a release
-    System.get_env("RELEASE_NAME") == nil
   end
 end

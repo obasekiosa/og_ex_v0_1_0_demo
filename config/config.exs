@@ -7,10 +7,6 @@
 # General application configuration
 import Config
 
-config :og_ex_demo,
-  ecto_repos: [OgExDemo.Repo],
-  generators: [timestamp_type: :utc_datetime]
-
 config :og_ex,
   fonts: [
     Path.expand("../priv/fonts/DejaVuSans.ttf", __DIR__),

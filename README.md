@@ -6,7 +6,7 @@ This Phoenix application demonstrates the released `og_ex` package from Hex:
 {:og_ex, "~> 0.1"}
 ```
 
-It uses SQLite and includes four cards:
+It includes four cards:
 
 - `/` — wide PNG
 - `/square` — square PNG with compact Twitter metadata
@@ -26,8 +26,7 @@ mix phx.server
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
-To verify compilation, SQLite migrations, controller metadata, and real PNG/SVG
-image responses:
+To verify compilation, controller metadata, and real PNG/SVG image responses:
 
 ```bash
 mix precommit
