@@ -14,6 +14,11 @@ defmodule OgExDemoWeb.PageControllerTest do
            |> LazyHTML.text()
            |> String.trim() == "OgEx is working"
 
+    assert ["/square", "/svg", "/square-svg"] =
+             document
+             |> LazyHTML.query(~s(nav[aria-label="OgEx card demos"] a))
+             |> LazyHTML.attribute("href")
+
     assert [_title] =
              document
              |> LazyHTML.query(~s(meta[property="og:title"]))
